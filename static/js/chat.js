@@ -141,19 +141,19 @@ function setNotifyBox(msg = "") {
 function auth() {
     let pass = prompt("Enter pass");
     if (pass != "" && pass !== null) {
-        sendMessage("auth " + pass);
+        sendMessage("/auth " + pass);
     }
 }
 
 function nick() {
     let nick = prompt("Enter new name");
     if (nick != "" && nick !== null) {
-        sendMessage("nick " + nick);
+        sendMessage("/nick " + nick);
     }
 }
 
 function help() {
-    sendMessage("help");
+    sendMessage("/help");
 }
 
 function showColors(show) {
@@ -203,7 +203,7 @@ function colorSelectChange() {
 }
 
 function sendColor(color) {
-    sendMessage("color " + color);
+    sendMessage("/color " + color);
     showColors(false);
 }
 
