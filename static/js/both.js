@@ -46,9 +46,9 @@ function checkKonami(e) {
 }
 
 function flipRemote() {
-    $("#remote").attr("src", "/static/img/remote_active.png");
+    $("#remote").attr("src", "static/img/remote_active.png");
     setTimeout(() => {
-        $("#remote").attr("src", "/static/img/remote.png");
+        $("#remote").attr("src", "static/img/remote.png");
     }, Math.round(Math.random() * 10000) + 1000);
 }
 

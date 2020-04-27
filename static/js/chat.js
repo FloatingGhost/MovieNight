@@ -44,7 +44,7 @@ function startGo() {
     }
 
     const go = new Go();
-    WebAssembly.instantiateStreaming(fetch("/static/main.wasm"), go.importObject).then((result) => {
+    WebAssembly.instantiateStreaming(fetch("static/main.wasm"), go.importObject).then((result) => {
         go.run(result.instance);
     }).then(() => {
         $("#chatwindow").css("display", "grid");
@@ -63,7 +63,7 @@ function getWsUri() {
     if (location.protocol == "https:") {
         proto = "wss://"
     }
-    return proto + window.location.hostname + port + "/ws";
+    return proto + window.location.hostname + port + window.location.pathname + "ws";
 }
 
 let maxMessageCount = 0
@@ -141,19 +141,19 @@ function setNotifyBox(msg = "") {
 function auth() {
     let pass = prompt("Enter pass");
     if (pass != "" && pass !== null) {
-        sendMessage("/auth " + pass);
+        sendMessage("auth " + pass);
     }
 }
 
 function nick() {
     let nick = prompt("Enter new name");
     if (nick != "" && nick !== null) {
-        sendMessage("/nick " + nick);
+        sendMessage("nick " + nick);
     }
 }
 
 function help() {
-    sendMessage("/help");
+    sendMessage("help");
 }
 
 function showColors(show) {
@@ -203,7 +203,7 @@ function colorSelectChange() {
 }
 
 function sendColor(color) {
-    sendMessage("/color " + color);
+    sendMessage("color " + color);
     showColors(false);
 }
 

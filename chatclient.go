@@ -155,7 +155,7 @@ func (cl *Client) NewMsg(data common.ClientData) {
 				return
 			}
 
-			cl.nextChat = time.Now().Add(time.Second * settings.RateLimitChat)
+			cl.nextChat = time.Now()
 			cl.nextDuplicate = time.Now().Add(time.Second * settings.RateLimitDuplicate)
 			cl.lastMsg = strings.TrimSpace(strings.ToLower(msg))
 
