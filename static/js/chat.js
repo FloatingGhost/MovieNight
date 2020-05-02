@@ -59,11 +59,13 @@ function getWsUri() {
     if (port != "") {
         port = ":" + port;
     }
+    const parts = document.location.pathname.split("/");
+
     proto = "ws://"
     if (location.protocol == "https:") {
         proto = "wss://"
     }
-    return proto + window.location.hostname + port + window.location.pathname + "ws";
+    return proto + window.location.hostname + port + "/" + parts[1] + "/" + parts[2] + "/ws";
 }
 
 let maxMessageCount = 0
